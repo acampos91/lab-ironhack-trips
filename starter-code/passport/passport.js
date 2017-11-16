@@ -4,10 +4,9 @@ const FbStrategy = require('passport-facebook').Strategy;
 
 
 passport.use(new FbStrategy({
-  provider_id: String,
-  provider_name: String,
-  password: String,
-  facebookID: String
+  clientID: "296039634221662",
+  clientSecret: "d89ffe14f55ca8c0947bcd35375e9cff",
+  callbackURL: "/"
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne({ facebookID: profile.id }, (err, user) => {
     if (err) {
